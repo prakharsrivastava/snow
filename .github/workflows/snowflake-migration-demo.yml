@@ -1,5 +1,5 @@
 name: snowflake-migration-demo
-echo "SF_ACCOUNT='$SF_ACCOUNT'"
+
 # Controls when the action will run. 
 on:
   push:
@@ -34,6 +34,12 @@ jobs:
           SF_DATABASE: ${{ secrets.SF_DATABASE }}
           SNOWFLAKE_PASSWORD: ${{ secrets.SF_PASSWORD }}
         run: |
+          echo "🔍 Debug: SF_ACCOUNT='$SF_ACCOUNT'"
+          echo "🔍 Debug: SF_USERNAME='$SF_USERNAME'"
+          echo "🔍 Debug: SF_ROLE='$SF_ROLE'"
+          echo "🔍 Debug: SF_DATABASE='$SF_DATABASE'"
+          echo "🔍 Debug: SF_PASSWORD='$SF_PASSWORD'"
+          echo "🔍 Debug: SF_WAREHOUSE='$SF_WAREHOUSE'"
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
           python --version
           echo "Step 1: Installing schemachange"
